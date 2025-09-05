@@ -45,10 +45,11 @@ class LoadSTL:
         i_ren.SetInteractorStyle(vtk.vtkInteractorStyleMultiTouchCamera())
         i_ren.SetRenderWindow(ren_win)
         # TIMER
-        i_ren.Initialize()  # 必须初始化，不然不动
+        i_ren.Initialize()  # 必须初始化，不然不动, 此方法在使用鼠标交互的时候 汽车就不动了
         ren_win.Render()
         i_ren.AddObserver("TimerEvent", self._render_timer)
-        i_ren.CreateRepeatingTimer(30)
+        i_ren.CreateRepeatingTimer(30)  # 改成一次性定时器
+
 
         i_ren.Start()
         
